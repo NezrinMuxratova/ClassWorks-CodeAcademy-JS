@@ -30,3 +30,28 @@ let x = {
 
 //TASK 3
 
+let speed ="120km/saat";
+let road ="8600km";
+let minute= speed/road ;
+let speedMatters="The car will arrive in China in" + "" + minute + "minutes.";
+console.job(sppetMatters)
+
+
+let birthYear=2003;
+let year=2023;
+let old= year - birthYear;
+console.log ("Yaşınız:" , old );
+
+
+
+
+let shalala=60;
+let gulnar=90;
+let nazrin=90;
+let briliant=70;
+let shebnem=60;
+let nigar=80;
+let fidan=90;
+let guller=80;
+let average= (shalala + gulnar + nazrin + briliant + shebnem + nigar + fidan + guller)/8
+console.log("Telebelerin ortalamasi:", average)
