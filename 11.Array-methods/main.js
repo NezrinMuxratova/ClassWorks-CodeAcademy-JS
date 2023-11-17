@@ -22,10 +22,10 @@ let arr= [1,2,2,2,4,3,3,2,4,7,5,7,6,];
     let count=0;
     number.forEach((num)=>
     num=== number && count++)
-return count
+return count;
  }
- console.log(findDigitOfArray(arr,7));
- console.log(findDigitOfArray(arr,2));
+ console.log(findDigitOfArray(`${max} ededi ${count} defe tekrarlanir`));
+//  console.log(findDigitOfArray(arr));
 
  //3. generate otp (4 reqemli otp kodu yaradan)
  function generateOtp() {
