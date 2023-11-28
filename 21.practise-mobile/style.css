@@ -1,0 +1,33 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+}
+.container{
+    max-width: 1200px;
+    margin:0 auto;
+}
+@media screen  and (max-width:767px){
+    .container{
+        padding:0 5%;
+    }
+}
+.box-1{
+    width: 30%;
+   height: 30%;
+}
+img{
+    width: 100%;
+}
+.btn-icon{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.product{
+    display:flex;
+    flex-wrap: wrap;
+    gap:10px 30px;
+}
