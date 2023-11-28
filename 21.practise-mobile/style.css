@@ -27,6 +27,7 @@ img{
 }
 
 .product{
+    height: 30%;
     display:flex;
     flex-wrap: wrap;
     gap:10px 30px;
