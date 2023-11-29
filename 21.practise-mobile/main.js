@@ -311,8 +311,8 @@ const products = [
     stock: 30,
     tags: ["earphone", "headphone", "apple", "earbuds"],
     comments: [],
-    __v: 0,
-  },
+    __v: 0,
+  },
 ];
 
 let product = document.querySelector(".product");
@@ -321,16 +321,16 @@ let basket = JSON.parse(localStorage.getItem("basket")) || [];
 drawcards(products);
 
 function drawcards(data) {
-    product.innerHTML = "";
+  product.innerHTML = "";
   data.forEach((element) => {
     product.innerHTML += `
     <div class="box-1">
         <img src="${element.thumbnail}" alt="" />
 
-        <h3>"${element.title}"</h3>
-        <h3>"${element.price}"</h3>
+        <h3 class="text">"${element.title}"</h3>
+        <h3 class="text">"${element.price}"</h3>
 
-        <p>
+        <p class="text">
          "${element.description}"
         </p>
         <div class="btn-icon ">
@@ -343,39 +343,52 @@ function drawcards(data) {
   });
 }
 
-
 // let index = basket.findIndex((products) => products._id === id);
 // function addToCart(id) {
-  //   let product = products.find((elem) => elem._id === id);
-  //   console.log(item);
-  //   let index = basket.findIndex((elem) => elem._id === id);
-  //   if (index > -1) {
-    //     basket[index]={
-      
-      //     ...basket[index],
-      //     amount:basket[index].amount+1,
-      
-      //   }
-      //   }
-      // }
-      //   console.log(index);
-      // }
-      
-      let basgetDiv=document.querySelector(".basgetDiv")
-      let card=[]
+//   let product = products.find((elem) => elem._id === id);
+//   console.log(item);
+//   let index = basket.findIndex((elem) => elem._id === id);
+//   if (index > -1) {
+//     basket[index]={
 
-function addToCart(id){
+//     ...basket[index],
+//     amount:basket[index].amount+1,
+
+//   }
+//   }
+// }
+//   console.log(index);
+// }
+
+let basgetDiv = document.querySelector(".basgetDiv");
+let card = [];
+
+function addToCart(id) {
   let product = products.find((element) => element._id === id);
-  let index = basket.findIndex((element) => element._id === id);
-  console.log(index);
-  card.push(product)
-// console.log(product);
-// data.push(card)
+  // let index = basket.findIndex((element) => element._id === id);
+  // console.log(product);
+  card.push(product);
+  localStorage.setItem("basket", JSON.stringify(basket));
+  // console.log(product);
+  // data.push(card)
+}
 
-  }
-  
-  addToCart("click", function(e){
-    e.preventDefault();
-    let basket = JSON.parse(localStorage.getItem("basket")) || [];
-    data.push(basket)
-  })
+// addToCart("click", function(e){
+//   e.preventDefault();
+//   let basket = JSON.parse(localStorage.getItem("basket")) || [];
+//   data.push(basket)
+// })
+
+let btnDark = document.querySelector("#btnDark");
+let body = document.querySelector("body");
+
+localStorage.getItem("dark-mode") === "true" &&
+  document.body.classList.add("dark-mode");
+
+btnDark.addEventListener("click", function () {
+  document.body.classList.toggle("dark-mode");
+  localStorage.getItem("dark-mode") === "true"
+    ? localStorage.setItem("dark-mode", false)
+    : localStorage.setItem("dark-mode", true);
+});
+

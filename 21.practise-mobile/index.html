@@ -19,14 +19,31 @@
     />
     <link rel="stylesheet" href="./style.css" />
     <title>Document</title>
+    <style>
+      .dark-mode{
+        background-color: #000;
+      }
+      .dark-mode .box-1{
+        background-color: rgb(115, 115, 228);
+      }
+      .dark-mode .text{
+        color:white
+      }
+    </style>
   </head>
   <body>
-    <nav>
-      <ul>
-        <li><a href="./product.html">prducts</a></li>
-        <li><a href="./basket.html">basket</a></li>
-      </ul>
-    </nav>
+    <div class="container">
+
+      <div class="buttonDark">
+        <button id="btnDark" type="button" class="btn btn-primary my-4">Toogle Dark Mode</button>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="./product.html">prducts</a></li>
+          <li><a href="./basket.html">basket</a></li>
+        </ul>
+      </nav>
+    </div>
     <div class="container">
         <div class="product">
 
