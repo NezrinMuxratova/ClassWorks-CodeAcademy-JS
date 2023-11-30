@@ -65,11 +65,11 @@ signupBtn.addEventListener("click", function (e) {
     login.push(users);
     localStorage.setItem("user", JSON.stringify(login));
     JSON.parse(localStorage.getItem("user"));
-    console.log(users);
+    console.log(users); 
+    window.location="./home.html"
   } else {
     window.alert("Password incorrect");
   }
-  window.location="./index.html"
   document.querySelectorAll("input").forEach((item) => {
     item.value = "";
     console.log(item);
