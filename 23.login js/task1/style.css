@@ -1,0 +1,21 @@
+
+body{
+   height: 100vh;  
+   background-color: bisque;
+}
+.container{
+    margin: 0 auto;
+    max-width: 1200px;
+ height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.form{
+    width: 200px;
+   height: 40% ;
+   padding: 20px;
+  background-color: white;
+
+}
