@@ -58,13 +58,13 @@ loginBtn.addEventListener("click", function (e) {
     password: inputPaswword.value,
   };
   login.push(users);
-  // if (inputEmail.value != "" || inputPaswword.value != "") {
-  //   localStorage.setItem("user", JSON.stringify(login));
-  //   JSON.parse(localStorage.getItem("user"));
-  //   console.log(users);
-  // } else {
-  //   window.alert("Error");
-  // }
+  if (inputEmail.value != "" || inputPaswword.value != "") {
+    localStorage.setItem("user", JSON.stringify(login));
+    JSON.parse(localStorage.getItem("user"));
+    console.log(users);
+  } else {
+    window.alert("Error");
+  }
 
   
   document.querySelectorAll("input").forEach((item) => {
