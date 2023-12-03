@@ -1,6 +1,4 @@
-src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
-integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
-crossorigin="anonymous"
+
 const products = [
   {
     _id: "6403c49deb0d73a0453b6c6e",
@@ -279,7 +277,7 @@ const products = [
       "Noise Cancelling Over-Ear Headphones - Apple W1 Headphone Chip, Class 1 Bluetooth, 22 Hours of Listening Time",
     price: 232,
 
-    thumbnail: "https://m.media-amazon.com/images/I/51-+O3-wFxL.AC_SX522.jpg",
+    thumbnail: "https://m.media-amazon.com/images/I/51-+O3-wFxL._AC_SX522_.jpg",
 
     stock: 18,
     tags: ["earphone", "headphone", "beats"],
@@ -294,7 +292,7 @@ const products = [
       "rue Wireless Noise Cancelling Earbuds - Compatible with Apple & Android, Built-in Microphone, IPX4 Rating, Sweat Resistant Earphones, Class 1 Bluetooth Headphones - Black",
     price: 119,
 
-    thumbnail: "https://m.media-amazon.com/images/I/51bRSWrEc7S.AC_SX522.jpg",
+    thumbnail: "https://m.media-amazon.com/images/I/51bRSWrEc7S._AC_SX522_.jpg",
 
     stock: 26,
     tags: ["earphone", "headphone", "beats"],
@@ -309,7 +307,7 @@ const products = [
       "Earbuds with Lightning Charging Case Included. Over 24 Hours of Battery Life, Effortless Setup. Bluetooth Headphones for iPhone",
     price: 119,
 
-    thumbnail: "https://m.media-amazon.com/images/I/61ziCBwTtEL.AC_SX522.jpg",
+    thumbnail: "https://m.media-amazon.com/images/I/61ziCBwTtEL._AC_SX522_.jpg",
 
     stock: 30,
     tags: ["earphone", "headphone", "apple", "earbuds"],
@@ -318,80 +316,71 @@ const products = [
   },
 ];
 
-let product = document.querySelector(".product");
+let productsList = document.querySelector(".products");
+let basketCount = document.querySelector(".basket-count");
+let basket=getProductsToLocalSotarge() ?? []
+console.log(products);
 
-let basket = JSON.parse(localStorage.getItem("basket")) || [];
-drawcards(products);
+function drawProducts(data) {
+  productsList.innerHTML = "";
 
-function drawcards(data) {
-  product.innerHTML = "";
   data.forEach((element) => {
-    product.innerHTML += `
-    <div class="box-1">
-        <img src="${element.thumbnail}" alt="" />
+    let divEelem = document.createElement("div");
 
-        <h3 class="text">"${element.title}"</h3>
-        <h3 class="text">"${element.price}"</h3>
-
-        <p class="text">
-         "${element.description}"
-        </p>
-        <div class="btn-icon ">
-
-            <button type="button" class=" btn-primary" onClick=addToCart("${element._id}")>Add to Basket</button>
-            <i class="fa-regular fa-heart"></i>
-        </div>
-      </div>
-    `;
+    divEelem.className =
+      "col-12 col-md-6 col-lg-4 mb-4 d-flex justify-content-center";
+    divEelem.innerHTML = `
+    <div class="card" style="width: 18rem">
+            <img src="${element.thumbnail}" class="card-img-top" alt="..." />
+            <div class="card-body">
+                <h5 class="card-title">${element.title}</h5>
+                <h5 class="card-title">${element.price}</h5>
+                <p class="card-text">
+                ${element.description.slice(0, 100)}...
+                </p>
+              <div class="d-flex justify-content-between align-items-center">
+                <button class="btn btn-primary" onclick=addToBasket("${
+                  element._id
+                }")>Add to Basket</button>
+                <i class="fa-regular fa-heart text-danger"></i>
+              </div>
+            </div>
+    </div>
+  `;
+    productsList.append(divEelem);
   });
 }
 
-// let index = basket.findIndex((products) => products._id === id);
-// function addToCart(id) {
-//   let product = products.find((elem) => elem._id === id);
-//   console.log(item);
-//   let index = basket.findIndex((elem) => elem._id === id);
-//   if (index > -1) {
-//     basket[index]={
+drawProducts(products);
 
-//     ...basket[index],
-//     amount:basket[index].amount+1,
+function addToBasket (id){
 
-//   }
-//   }
-// }
-//   console.log(index);
-// }
+  let product=products.find((item) => item._id === id)
 
-let basgetDiv = document.querySelector(".basgetDiv");
-let card = [];
+ console.log(basket)
 
-function addToCart(id) {
-  let product = products.find((element) => element._id === id);
-  // let index = basket.findIndex((element) => element._id === id);
-  // console.log(product);
-  card.push(product);
-  localStorage.setItem("basket", JSON.stringify(basket));
-  // console.log(product);
-  // data.push(card)
+  let index = basket?.findIndex((item) => item.product._id === id);
+  if (index>-1) {
+    basket[index].count=basket[index].count +1;
+    console.log(basket[index]);
+  }else{
+    basket.push({count:1, product:product})
+  }
+  setProductsToLocalSotarge(basket);
+  getBasketCount()
+  
+}
+function setProductsToLocalSotarge (arr){
+  localStorage.setItem("allProducts", JSON.stringify(arr))
+
+}
+function getProductsToLocalSotarge(){
+  return JSON.parse(localStorage.getItem("allProducts"))
 }
 
-// addToCart("click", function(e){
-//   e.preventDefault();
-//   let basket = JSON.parse(localStorage.getItem("basket")) || [];
-//   data.push(basket)
-// })
 
-let btnDark = document.querySelector("#btnDark");
-let body = document.querySelector("body");
 
-localStorage.getItem("dark-mode") === "true" &&
-  document.body.classList.add("dark-mode");
-
-btnDark.addEventListener("click", function () {
-  document.body.classList.toggle("dark-mode");
-  localStorage.getItem("dark-mode") === "true"
-    ? localStorage.setItem("dark-mode", false)
-    : localStorage.setItem("dark-mode", true);
-});
-
+function getBasketCount(){
+    basketCount.textContent=basket.reduce((acc,curr)=> acc+curr.count,0)
+}
+getBasketCount()
