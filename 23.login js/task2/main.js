@@ -598,8 +598,10 @@ const data = [
 
 let thElem = document.querySelector(".thElem");
 let tbody = document.querySelector("tbody");
-let thName=document.querySelector(".thName")
+let thName = document.querySelector(".thName");
 let icon = document.querySelector(".fa-arrow-down");
+let search = document.querySelector(".search");
+
 function drawTable(data) {
   tbody.innerHTML = "";
   data.forEach((element) => {
@@ -634,23 +636,30 @@ thElem.addEventListener("click", function () {
   }
 });
 
-let sortedToggleTwo=true;
+let sortedToggleTwo = true;
 
-thName.addEventListener("click",  function(){
-    if (sortedToggleTwo) {
-        let sorted = data.sort((a, b) => {
-            return a.first_name.localeCompare(b.first_name);
-          });
-          drawTable(sorted);
-          sortedToggleTwo=false
-    }else{
-       
-            let sorted = data.sort((a, b) => {
-                return b.first_name.localeCompare(a.first_name);
-              });
-          
-              drawTable(sorted)
-              sortedToggleTwo=true
-        
-    }
-})
+thName.addEventListener("click", function () {
+  if (sortedToggleTwo) {
+    let sorted = data.sort((a, b) => {
+      return a.first_name.localeCompare(b.first_name);
+    });
+    drawTable(sorted);
+    sortedToggleTwo = false;
+  } else {
+    let sorted = data.sort((a, b) => {
+      return b.first_name.localeCompare(a.first_name);
+    });
+
+    drawTable(sorted);
+    sortedToggleTwo = true;
+  }
+});
+search.addEventListener("keyup", function (event) {
+  let filteredData = data.filter((element) => {
+    return element.first_name
+      .toLocaleLowerCase()
+      .includes(event.target.value.toLocaleLowerCase());
+  });
+  drawTable(filteredData);
+});
+
