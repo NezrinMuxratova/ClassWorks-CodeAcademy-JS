@@ -342,7 +342,7 @@ function drawProducts(data) {
                 <button class="btn btn-primary" onclick=addToBasket("${
                   element._id
                 }")>Add to Basket</button>
-                <i class="fa-regular fa-heart text-danger"></i>
+                <i class="fa-regular fa-heart text-danger" onclick></i>
               </div>
             </div>
     </div>
