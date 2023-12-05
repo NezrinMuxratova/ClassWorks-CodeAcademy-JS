@@ -7,15 +7,16 @@ fetch(`${BASE_URL}`)
   .then((response) => response.json())
   .then((data) => {
     console.log(data);
-    drawCards(data)
-  }).catch((err)=>{
-    console.log(err)
+    drawCards(data);
+  })
+  .catch((err) => {
+    console.log(err);
   });
 
-function drawCards (element){
-    boxWather.innerHTML=""
+function drawCards(element) {
+  boxWather.innerHTML = "";
 
-        boxWather.innerHTML+=`
+  boxWather.innerHTML += `
         <form action="">
           <div class="inputBtn">
 
@@ -26,12 +27,12 @@ function drawCards (element){
           </div>
           <div class="image">
             <p>${element.location.country}</p>
-            <p>${element.current.condition.text.lat}</p>
-            <p>${element.location.localtime}</p>
-            <p>${element.location.localtime_epoch}</p>
-            <p>${element.location.region}</p>
+            <img src="${element.current.condition.icon}" alt="">
+            <p>${element.current.condition.text}</p>
+            <p>${element.current.temp_c}</p>
+            <p>${element.current.temp_c}</p>
+            <p>${element.current.last_updated_epoch}</p>
           </div>
         </form>
-        `
-    
+        `;
 }
