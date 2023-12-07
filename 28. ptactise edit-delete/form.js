@@ -1,5 +1,7 @@
 let form=document.querySelector("form")
-let allInputs=document.querySelectorAll("input")
+let input=document.querySelectorAll(".input")
+let textarea=document.querySelector("textarea")
+let option=document.querySelector("select")
 const BASE_URL="http://localhost:8000/blogs"
 const id =new URLSearchParams(window.location.search).get("id")
 console.log(id);
@@ -7,13 +9,33 @@ console.log(id);
 
 async function formData(){
 let response= await axios (`${BASE_URL}/${id}`)
-console.log(response.data);
-allInputs[0].value=response.data.title,
-allInputs[1].value=response.data.body,
-allInputs[2].value=response.data.author
+// console.log(response.data);
+input[0].value=response.data.title,
+textarea.value=response.data.body,
+option.value=response.data.author
+console.log(option);
+}
 
+
+if(id){
+    formData()
 }
 
 form.addEventListener("submit", function(event){
     event.preventDefault()
+    let drawcard={
+        title:input[0].value,
+        body:textarea.value,
+        author:option.value
+    }
+    if (!id) {
+      axios.post(`${BASE_URL}`, drawcard)
+    }else{
+        axios.patch(`${BASE_URL}/${id}`, drawcard)
+    }
+    console.log(input);
+    
+    input.forEach((item) => {
+        item.value=""
+    })
 })

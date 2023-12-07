@@ -1,20 +1,23 @@
-let cards=document.querySelector(".cards")
-let search=document.querySelector(".search")
-const BASE_URL="http://localhost:8000/blogs"
+let cards = document.querySelector(".cards");
+let search = document.querySelector(".search");
+let sort = document.querySelector(".sort");
+const BASE_URL = "http://localhost:8000/blogs";
 
-let blogs=  null;
-async function getData(){
-    let response=await axios (`${BASE_URL}`)
-    // console.log(response.data);
-    blogs=response.data
-    drawCards(response.data)
+let blogs = null;
+let blogsCopy = null;
+async function getData() {
+  let response = await axios(`${BASE_URL}`);
+  // console.log(response.data);
+  blogs = response.data;
+  blogsCopy = structuredClone(blogs);
+  drawCards(response.data);
 }
-getData()
+getData();
 
-function drawCards (data){
-    cards.innerHTML=""
-    data.forEach(element => {
-        cards.innerHTML += `
+function drawCards(data) {
+  cards.innerHTML = "";
+  data.forEach((element) => {
+    cards.innerHTML += `
         
         <div class="card">
         <div class="card-body">
@@ -22,33 +25,52 @@ function drawCards (data){
           <div><a class="text">
           ${element.body}... 
         </a>
-        <a href="" class="sucsecc">Read More</a></div>
+        <a href="./details.html?id=${element.id}" class="sucsecc">Read More</a></div>
           
           <p class="card-text">${element.author}</p>
           <div class="btns">
 
               <button class="Delete" onclick=deleteBtn(${element.id},this)>Delete</button>
-              <a  href="#"  class="edit" >Edit</a>
+              <a  href="./form.html?id=${element.id}"  class="edit" >Edit</a>
           </div>
         </div>
       </div>
         
         
-        `
-    });
+        `;
+  });
 }
 
-async function deleteBtn(id,btn){
-    if(confirm("Do you want to delete?")){
-        btn.closest("card")
-        await axios.delete(`${BASE_URL}`)
-    }
+async function deleteBtn(id, btn) {
+  if (confirm("Do you want to delete?")) {
+    btn.closest("card");
+    await axios.delete(`${BASE_URL}/${id}`);
+  }
 }
 
-
-search.addEventListener("input", function(element){
-    let filtered=blogs.filter((item)=> {
-        item.title.toLocaleLowerCase().includes(element.target.value.toLocaleLowerCase())
-    })
-    drawCards(filtered)
-})
+search.addEventListener("input", function (element) {
+  let filtered = blogs.filter((item) => {
+    return item.title
+      .toLocaleLowerCase()
+      .includes(element.target.value.toLocaleLowerCase());
+  });
+  drawCards(filtered);
+  console.log(filtered);
+});
+ 
+let split=null;
+sort.addEventListener("click", function () {
+  let sorted;
+  if (this.innerText == "Ascending") {
+    sorted = blogs.sort(
+      (a, b) => a.title.localeCompare(b.title),
+      (this.innerText = "Descending")
+    );
+  } else if (this.innerText == "Descending") {
+    sorted = blogs.sort((a, b) => b.title.localeCompare(a.title));
+    this.innerText = "Default";
+  } else {
+    this.innerText = "Ascending";
+    sorted = blogsCopy;
+  }
+});
