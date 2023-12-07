@@ -34,9 +34,9 @@ function drawCards (arr){
     arr?.forEach(element =>{
         filmCards.innerHTML+=`
     
-        <div class=" ">
+        <div class="mb-3 ">
           <div class="card" style="width: 18rem">
-            <div class="card-body">
+            <div class="card-body ">
             <img src="${element.Poster}" alt="">
               <i class="fa-solid fa-heart text-danger"></i>
               <p class="card-text">${element?.Title}</p>
