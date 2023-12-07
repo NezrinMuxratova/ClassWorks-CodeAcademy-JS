@@ -58,14 +58,14 @@ search.addEventListener("input", function (element) {
   console.log(filtered);
 });
  
-let split=null;
+
 sort.addEventListener("click", function () {
   let sorted;
   if (this.innerText == "Ascending") {
     sorted = blogs.sort(
-      (a, b) => a.title.localeCompare(b.title),
-      (this.innerText = "Descending")
-    );
+      (a, b) => a.title.localeCompare(b.title)
+      );
+      this.innerText = "Descending"
   } else if (this.innerText == "Descending") {
     sorted = blogs.sort((a, b) => b.title.localeCompare(a.title));
     this.innerText = "Default";
@@ -73,4 +73,5 @@ sort.addEventListener("click", function () {
     this.innerText = "Ascending";
     sorted = blogsCopy;
   }
+  drawCards(sorted)
 });
