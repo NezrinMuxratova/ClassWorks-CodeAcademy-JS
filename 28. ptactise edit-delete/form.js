@@ -23,19 +23,33 @@ if(id){
 
 form.addEventListener("submit", function(event){
     event.preventDefault()
+    window.location="./index.html"
+  
     let drawcard={
         title:input[0].value,
         body:textarea.value,
         author:option.value
     }
     if (!id) {
-      axios.post(`${BASE_URL}`, drawcard)
+    
+      if(input.value!="" && textarea.value !=""){
+        axios.post(`${BASE_URL}`, drawcard)
+      }else{
+        window.alert("Please fill fields")
+      }
+      
     }else{
         axios.patch(`${BASE_URL}/${id}`, drawcard)
     }
     console.log(input);
     
     input.forEach((item) => {
+        item.value=""
+    })
+    textarea.forEach((item) => {
+        item.value=""
+    })
+    option.forEach((item) => {
         item.value=""
     })
 })
