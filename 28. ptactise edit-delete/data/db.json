@@ -1,28 +1,16 @@
 {
   "blogs": [
     {
-      "title": "Malkajklsj",
+      "title": "asXSasASa",
       "body": "Velit deleniasdti qui e",
       "author": "",
       "id": 2
     },
     {
-      "title": "Consequat Voluptate",
-      "body": "Rem iste libero ut v",
+      "title": "Aas",
+      "body": "ASas",
       "author": "Lorem",
       "id": 4
-    },
-    {
-      "title": "Consectetur nulla o Nazrin Muxtarova",
-      "body": "Iure repelasdlendus Id 132",
-      "author": "ipsum",
-      "id": 7
-    },
-    {
-      "title": "Consequat Ducimus ",
-      "body": "Maiores elit asperi",
-      "author": "ipsum",
-      "id": 8
     },
     {
       "title": "Voluptas reprehender",
@@ -37,8 +25,8 @@
       "id": 10
     },
     {
-      "title": "b",
-      "body": "Est odio vero eum pr",
+      "title": "Selale ",
+      "body": "9 dekabr ad gunu",
       "author": "Lorem",
       "id": 12
     },
@@ -47,12 +35,6 @@
       "body": "Facere atque eu reru",
       "author": "Lorem",
       "id": 13
-    },
-    {
-      "title": "Impedit autem ad ea",
-      "body": "Omnis error irure la",
-      "author": "Lorem",
-      "id": 15
     },
     {
       "title": "Nergiz",
@@ -65,12 +47,6 @@
       "body": "Doloribus eu soluta ",
       "author": "Lorem",
       "id": 17
-    },
-    {
-      "title": "",
-      "body": "",
-      "author": "select author",
-      "id": 19
     },
     {
       "title": "Sit sit in sunt s",
@@ -145,40 +121,10 @@
       "id": 32
     },
     {
-      "title": "Suscipit voluptas et",
-      "body": "Veniam velit perspi",
-      "author": "Lorem",
-      "id": 33
-    },
-    {
       "title": "Commodo aut incidunt",
       "body": "Enim doloremque comm",
       "author": "Lorem",
       "id": 34
-    },
-    {
-      "title": "Inventore consectetu",
-      "body": "Voluptatibus tempore",
-      "author": "select author",
-      "id": 35
-    },
-    {
-      "title": "Voluptatem voluptat",
-      "body": "Eos maiores volupta",
-      "author": "Lorem",
-      "id": 36
-    },
-    {
-      "title": "At aut aspernatur of",
-      "body": "Culpa cum eum tempo",
-      "author": "ipsum",
-      "id": 37
-    },
-    {
-      "title": "Adipisci earum amet",
-      "body": "Omnis ab ad praesent",
-      "author": "ipsum",
-      "id": 39
     }
   ]
 }
