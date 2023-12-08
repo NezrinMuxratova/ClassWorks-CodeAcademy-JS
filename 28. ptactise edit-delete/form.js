@@ -23,6 +23,7 @@ if(id){
 
 form.addEventListener("submit", function(event){
     event.preventDefault()
+    window.location="./index.html"
   
     let drawcard={
         title:input[0].value,
