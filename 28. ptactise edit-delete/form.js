@@ -31,7 +31,12 @@ form.addEventListener("submit", function(event){
         author:option.value
     }
     if (!id) {
-      axios.post(`${BASE_URL}`, drawcard)
+    
+      if(input.value!="" && textarea.value !=""){
+        axios.post(`${BASE_URL}`, drawcard)
+      }else{
+        window.alert("Please fill fields")
+      }
       
     }else{
         axios.patch(`${BASE_URL}/${id}`, drawcard)
