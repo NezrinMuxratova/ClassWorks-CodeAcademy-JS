@@ -26,7 +26,7 @@ const employees = [
 // #sadecə department "HR" olanları yeni array'a yığıb, həmin arrayı console edin
 for (let i = 0; i < employees.length; i++) {
   if (employees[i].department === "HR") {
-    console.log(employees[i]);
+    // console.log(employees[i]);
   }
 }
 // -------------------
@@ -46,14 +46,14 @@ for (let i = 0; i < employees.length; i++) {
 
 // person adlı object-dən firstName-i, languageInfo-dan eng və rus property-ni destructing edin, əlavə olaraq
 // personda yerdə qalan bütün property-ləri otherInfo adı altında rest operatoru ilə bir dəyişənə çıxarın.
-let {
-  firstName,
-  languageInfo: { eng, rus },
-  languageInfo,
-  ...otherInfo
-} = person;
-console.log(languageInfo);
-console.log(otherInfo);
+// let {
+//   firstName,
+//   languageInfo: { eng, rus },
+//   languageInfo,
+//   ...otherInfo
+// } = person;
+// console.log(languageInfo);
+// console.log(otherInfo);
 // console.log(eng); // "Advance"
 // console.log(otherInfo); // {lastName: 'Doe', city: 'Ganja', website: 'code.edu.az'}
 
@@ -69,29 +69,31 @@ const person = {
 };
 
 // 1. employees object-nin sadəcə key-lərini console-a çıxardın.
-const keys = Object.keys(person);
-console.log(keys);
+// const keys = Object.keys(person);
+// console.log(keys);
 // 2. employees object-nin sadəcə value-lərini console-a çıxardın.
-const value = Object.values(person);
-console.log(value);
+// const value = Object.values(person);
+// console.log(value);
 // 3. Aşağıdakı kimi console-a çıxardın.
 //     [firstName: 'Michael']
 //     [lastName: 'Pam']
 //     [age:26]
 //     [city: 'Poland']
-const enstries = Object.entries(person);
-console.log(enstries);
+// const enstries = Object.entries(person);
+// console.log(enstries);
 // 4. object-in age propertysini silin.
-delete person.age;
-console.log(person);
-// 5. Ən uzun string value-nu console-a çıxardın.
-// person.values.
+// delete person.age;
+// console.log(person);
+// 5. Ən uzun string value-nu console-a çıxardın.  
+    
+
+
 
 
 // TASK 4
 
 const text = "Java is awesome. Java is fun.";
-console.log(text.replace("Java", "Javascript"));
+// console.log(text.replace("Java", "Javascript"));
 
 // text dəyişəndə Java sözünün əvəzinə Javascript yazdırın
 // ====>> JavaScript is awesome. Javascript is fun.
@@ -105,7 +107,7 @@ function polindrom(str) {
   let reverseStr = str.split("").reverse().join("");
   return str === reverseStr ? `${str} is polindrom` : `${str} is not polindrom`;
 }
-console.log(polindrom("hello"));
+// console.log(polindrom("hello"));
 
 // TASK 6
 
@@ -118,21 +120,37 @@ function longestWord(element) {
   });
   return array[0];
 }
-console.log(longestWord("Hello word hi programmers"));
+// console.log(longestWord("Hello word hi programmers"));
 
 // ------------------
 
 // TASK 7
 
-// const persons = [
-//     { name: "Akif", age: 25 },
-//     { name: "Aysu", age: 32 },
-//     { name: "Ali", age: 35 }
-// ];
+const persons = [
+    { name: "Akif", age: 25 },
+    { name: "Aysu", age: 32 },
+    { name: "Ali", age: 35 }
+];
 
+
+let newsPersons=persons.find((elem) => elem.age>30)
+console.log(newsPersons);
 // find metodu vasitəsilə array-in içindəki, yaşı 30-dan yuxarı olan ilk şəxsi "firstPerson" adlı dəyişkənə
 // mənimsədib console-a çıxardın. ====> { name: 'Aysu', age: 32 }
 
 // ------------------------------ part II
 
 // tapdığınız objectin index-ni də ikinci bir console-da çıxardın.(metod ilə)
+let newsPersonsIndex=persons.findIndex((elem) => elem.age>30)
+console.log(newsPersonsIndex);
+
+
+
+let secondValue="success"
+
+let firstValue="add"
+function findCountCharsAsObjects(str) {
+ let news
+} 
+console.log(findCountCharsAsObjects());
+// findCountCharsAsObjects(firstValue) // {a:1, d:2}
