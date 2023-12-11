@@ -15,7 +15,7 @@ const employees = [
 //     if (employees[index].salary>2000) {
 //         console.log(employees[index]);
 //     }
-    
+
 //    }
 // #ortalama maaşı 10000-dən çox olan və departamenti "IT" olanları çapa verən program tərtib edin.
 // for (let i = 0; i < employees.length; i++) {
@@ -25,69 +25,73 @@ const employees = [
 // }
 // #sadecə department "HR" olanları yeni array'a yığıb, həmin arrayı console edin
 for (let i = 0; i < employees.length; i++) {
-if (employees[i].department==="HR") {
+  if (employees[i].department === "HR") {
     console.log(employees[i]);
-}    
+  }
 }
 // -------------------
 // TASK 2
 
-const person = {
-  firstName: "John",
-  lastName: "Doe",
-  city: "Ganja",
-  website: "code.edu.az",
-  languageInfo: {
-    eng: "Advance",
-    aze: "Fluenty",
-    rus: "Intermediate",
-  },
-};
+// const person = {
+//   firstName: "John",
+//   lastName: "Doe",
+//   city: "Ganja",
+//   website: "code.edu.az",
+//   languageInfo: {
+//     eng: "Advance",
+//     aze: "Fluenty",
+//     rus: "Intermediate",
+//   },
+// };
 
 // person adlı object-dən firstName-i, languageInfo-dan eng və rus property-ni destructing edin, əlavə olaraq
 // personda yerdə qalan bütün property-ləri otherInfo adı altında rest operatoru ilə bir dəyişənə çıxarın.
-  let {firstName, languageInfo:{eng,rus},languageInfo ,...otherInfo} =person
+let {
+  firstName,
+  languageInfo: { eng, rus },
+  languageInfo,
+  ...otherInfo
+} = person;
 console.log(languageInfo);
 console.log(otherInfo);
 // console.log(eng); // "Advance"
 // console.log(otherInfo); // {lastName: 'Doe', city: 'Ganja', website: 'code.edu.az'}
 
-
 // -------------------------
 
 // TASK 3
 
-// const person = {
-//     firstName: 'Michael',
-//     lastName: 'Pam',
-//     age: 26,
-//     city: 'Poland'
-// };
+const person = {
+    firstName: 'Michael',
+    lastName: 'Pam',
+    age: 26,
+    city: 'Poland'
+};
 
 // 1. employees object-nin sadəcə key-lərini console-a çıxardın.
-const keys=(Object.keys(person));
+const keys = Object.keys(person);
 console.log(keys);
 // 2. employees object-nin sadəcə value-lərini console-a çıxardın.
-const value=Object.values(person)
+const value = Object.values(person);
 console.log(value);
 // 3. Aşağıdakı kimi console-a çıxardın.
 //     [firstName: 'Michael']
 //     [lastName: 'Pam']
 //     [age:26]
 //     [city: 'Poland']
-const enstries=Object.entries(person)
+const enstries = Object.entries(person);
 console.log(enstries);
 // 4. object-in age propertysini silin.
-    delete person.age
-    console.log(person);
+delete person.age;
+console.log(person);
 // 5. Ən uzun string value-nu console-a çıxardın.
-// person.replace()
+// person.values.
 
 
 // TASK 4
 
- const text = "Java is awesome. Java is fun.";
- console.log(text.replace("Java", "Javascript"));
+const text = "Java is awesome. Java is fun.";
+console.log(text.replace("Java", "Javascript"));
 
 // text dəyişəndə Java sözünün əvəzinə Javascript yazdırın
 // ====>> JavaScript is awesome. Javascript is fun.
@@ -96,30 +100,23 @@ console.log(enstries);
 
 // TASK 5
 
-
 // Sözün palindrom olub olmadığını yoxlayın.
-// let strLength=str.length()
-// for (let i = strLength-1; i >=0; i++) {
-//     const element = array[i];
-    
-// }
-// console.log(isPalindrome("hello"));
-// isPalindrome("hello");
-
-
-
+function polindrom(str) {
+  let reverseStr = str.split("").reverse().join("");
+  return str === reverseStr ? `${str} is polindrom` : `${str} is not polindrom`;
+}
+console.log(polindrom("hello"));
 
 // TASK 6
-
 
 // console.log(longestWord("Hello word hi programmers"));
 
 // Ən uzun sözü tapın.  ======>> programmers
-function longestWord(element){
-let array=element.split("").reduce((a,b)=>{
-    return b.length-a.length ? a: b , ""
-})
-return longestWord[array]
+function longestWord(element) {
+  let array = element.split(" ").sort((a, b) => {
+    return b.length - a.length;
+  });
+  return array[0];
 }
 console.log(longestWord("Hello word hi programmers"));
 
