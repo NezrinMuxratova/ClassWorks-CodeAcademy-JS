@@ -54,7 +54,7 @@ let multiply = numOne * numTwo;
 let div = numOne / numTwo;
 let remainder = numOne % numTwo;
 let power = numOne ** numTwo;
-console.log(sum, diff, multiply, div, remainder, power);
+console.log(sum, diff, multiply, div, remainder, power);  
 
 let countOne = 0;
 console.log(countOne++); // 0
