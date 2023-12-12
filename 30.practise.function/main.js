@@ -85,9 +85,14 @@ const person = {
 // delete person.age;
 // console.log(person);
 // 5. Ən uzun string value-nu console-a çıxardın.  
-    
-
-
+const value = Object.values(person);
+let maxLength=""
+value.forEach(item=>{
+  if (typeof item==="string") {
+    if(item.length>maxLength.length)maxLength=item
+  }
+})
+console.log(maxLength);
 
 
 // TASK 4
@@ -150,7 +155,18 @@ let secondValue="success"
 
 let firstValue="add"
 function findCountCharsAsObjects(str) {
- let news
+let result={}
+
+
+
 } 
-console.log(findCountCharsAsObjects());
+
+console.log(findCountCharsAsObjects(firstValue));
 // findCountCharsAsObjects(firstValue) // {a:1, d:2}
+
+let userObject={
+  userName:"Lorem Ipsum",
+  age:66,
+}
+
+console.log(userObject);
