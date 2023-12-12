@@ -2,7 +2,7 @@ let form = document.querySelector("form");
 let emailLogin = document.querySelector(".email");
 let passwordLogin = document.querySelector(".password");
 let allInputs = document.querySelectorAll("input");
-let faEye=document.querySelector("fa-eye")
+let faEye=document.querySelector(".fa-eye")
 let login = JSON.parse(localStorage.getItem("user")) ?? [];
 
 form.addEventListener("submit", function (e) {
@@ -22,10 +22,10 @@ form.addEventListener("submit", function (e) {
 faEye.addEventListener("click", function () {
     console.log(this.className);
     if (this.className === "fa-solid fa-eye") {
-      passwordInput.type = "text";
+      passwordLogin.type = "text";
       this.className = "fa-regular fa-eye";
     } else {
-      passwordInput.type = "password";
+      passwordLogin.type = "password";
       this.className = "fa-solid fa-eye";
     }
   });
