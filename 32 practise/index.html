@@ -46,7 +46,7 @@
       background-color: bisque;
       width: 100%;
       position: fixed;
-      padding:5px;
+      padding: 5px;
     }
     .header {
       display: flex;
@@ -87,35 +87,53 @@
     .user {
       margin-top: 100px;
     }
-    .fa-bars{
+    .fa-bars {
       display: none;
     }
     @media screen and (max-width: 767px) {
-
       header {
         background-color: black;
         color: white;
       }
-      nav {
-        display: none;
+      header .header nav ul {
+        flex-direction: column;
+        height: 100vh;
+        justify-content: center;
       }
-      a{
+      header .header nav {
+    display: none;
+    position: fixed;
+    width: 100%;
+    top: 67px;
+    left: 0;
+    background-color: #000;
+  }
+  header .header nav ul {
+    color:white;
+    flex-direction: column;
+    height: 100vh;
+    justify-content: center;
+  }
+  header .header nav.show {
+    display: block;
+  }
+      a {
         text-decoration: none;
       }
-      .fa-bars{
+      .sectionOne {
+        background-image: url("./assets/img/bg3.jpg");
+      }
+      table {
+        display: none;
+      }
+      .border {
+        left: 42%;
+      }
+      .fa-solid {
         display: block;
         text-decoration: none;
         list-style: none;
-        color:white
-      }
-      .sectionOne{
-        background-image: url("./assets/img/bg3.jpg");
-      }
-      table{
-        display: none;
-      }
-      .border{
-        left:42%
+        color: white;
       }
     }
   </style>
@@ -128,15 +146,14 @@
               <h1>Logo</h1>
             </div>
             <div class="headerTwo">
-              <nav>
+              <nav class="nav">
                 <ul>
                   <li><a href="./index.html">Home</a></li>
                   <li><a href="./form.html">Add User</a></li>
                   <li><a href="./fav.html">Favorite</a></li>
                 </ul>
               </nav>
-              <a href="./dark.html"> <i class="fa-solid fa-bars"></i></a>
-             
+              <i id="menu" class="fa-solid fa-bars"></i>
             </div>
           </div>
         </div>

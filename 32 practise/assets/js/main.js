@@ -1,3 +1,5 @@
+const nav = document.querySelector(".nav");
+const menuIcon = document.querySelector("#menu");
 let tbody = document.querySelector("tbody");
 const BASE_URL = ` http://localhost:7000/users`;
 
@@ -58,3 +60,12 @@ async function addToFav(id, btn) {
     alert("it's already there")
   }
 }
+
+
+menuIcon.addEventListener("click", function () {
+  nav.classList.toggle("show");
+
+  this.classList.contains("fa-bars")
+    ? (this.classList = "fa-solid fa-xmark")
+    : (this.classList = "fa-solid fa-bars");
+});
