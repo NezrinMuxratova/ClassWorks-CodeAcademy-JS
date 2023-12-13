@@ -9,12 +9,12 @@ function drawCard(data) {
     cardDiv.className="card"
     cardDiv.innerHTML = `
       
-       <img src="${element.userphoto}" class="card-img-top" alt="">
+       <img src="${element.userphoto}"alt="">
        <div class="card-body">
          <h5 class="card-name">${element.name} ${element.surname}</h5>
          <p class="card-email">${element.email}</p>
          <p class="card-date">${element.date}</p>
-         <a href="#" class="btn btn-danger">Delete</a>
+         <button class="btn btn-primary" onclick=deleteUser(${element.id},this)>Remove Fav</button>
        </div>
    
        
@@ -23,3 +23,13 @@ function drawCard(data) {
   });
 }
 drawCard(fav)
+
+
+function deleteUser(id, btn) {
+
+  if (confirm("What you want to delete")) {
+    let favorite =fav.filter((item)=> item.id != id)
+    btn.closest(".card").remove();
+    localStorage.setItem("fav", JSON.stringify(favorite))
+  }
+}

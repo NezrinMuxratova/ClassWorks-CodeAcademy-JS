@@ -44,7 +44,9 @@ async function deleteUser(id, btn) {
 }
 
 let fav = JSON.parse(localStorage.getItem("fav")) ?? [];
+
 async function addToFav(id, btn) {
+  btn.innerText="Added"
   let response = await axios(`${BASE_URL}/${id}`);
   console.log(response.data);
   let obj = fav.find((item) => item.id === id);
@@ -53,6 +55,6 @@ async function addToFav(id, btn) {
     localStorage.setItem("fav", JSON.stringify(fav));
 
   }else{
-    alert("var")
+    alert("it's already there")
   }
 }

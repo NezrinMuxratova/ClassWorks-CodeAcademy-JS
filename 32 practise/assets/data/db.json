@@ -4,8 +4,8 @@
       "name": "Bryar",
       "surname": "Kirestin",
       "email": "hujo@mailinator.com",
-      "date": "12/13/2023, 1:04:29 AM",
-      "userphoto": "./assets/img/Alfredo.jpg",
+      "date": "12/13/2023, 4:49:20 AM",
+      "userphoto": "./assets/img/Chef.jpeg",
       "id": 1
     },
     {
@@ -49,10 +49,20 @@
       "id": 6
     },
     {
-      "name": "Craig",
-      "surname": "Karen",
-      "email": "sywabyfid@mailinator.com",
+      "name": "Callie",
+      "surname": "Harriet",
+      "email": "pypanoq@mailinator.com",
+      "userphoto": "./assets/img/bg3.jpg",
+      "date": "12/13/2023, 3:02:56 AM",
       "id": 7
+    },
+    {
+      "name": "Xantha",
+      "surname": "Nora",
+      "email": "qemu@mailinator.com",
+      "userphoto": "./assets/img/Chef.jpeg",
+      "date": "12/13/2023, 3:46:06 AM",
+      "id": 8
     }
   ]
 }

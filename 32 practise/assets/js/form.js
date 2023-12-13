@@ -1,6 +1,6 @@
 let form = document.querySelector("form");
 let allInput = document.querySelectorAll("input");
-
+let goBtn = document.querySelector(".btn");
 const BASE_URL = ` http://localhost:7000/users`;
 const id = new URLSearchParams(window.location.search).get("id");
 
@@ -21,10 +21,13 @@ if (id) {
 console.log(form);
 form.addEventListener("submit", function (e) {
   e.preventDefault();
+  let date = new Date();
   let newCard = {
     name: allInput[0].value,
     surname: allInput[1].value,
     email: allInput[2].value,
+    userphoto:`./assets/img/${allInput[3].value.split("\\")[2]}`,
+    date: date.toLocaleString(),
   };
 
   console.log(newCard);
@@ -36,11 +39,15 @@ form.addEventListener("submit", function (e) {
     ) {
       axios.post(`${BASE_URL}`, newCard);
     } else {
-      //   window.alert("Please fill fields")
+      window.alert("Please fill fields");
     }
   } else {
     axios.patch(`${BASE_URL}/${id}`, newCard);
   }
   console.log(allInput);
-  //  window.location="./index.html"
+  window.location = "./index.html";
+});
+
+goBtn.addEventListener("click", function (e) {
+  window.history.back();
 });
