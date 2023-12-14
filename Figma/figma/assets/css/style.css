@@ -1,0 +1,46 @@
+*{
+    margin:0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    background-color: rgb(192, 221, 255);
+}
+.container{
+    margin: 0 auto;
+    max-width: 1200px;
+}
+
+.UserListCard{
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 250px;
+    /* text-align: center; */
+}
+.userListTop{
+    color:white;
+    background-color: blue;
+    padding: 20px;
+    border-radius: 5px;
+    line-height: 1.5;
+}
+input{
+    padding: 5px;
+    outline: none;
+    border:none;
+    border-radius: 5px;
+}
+.cardOne{
+    margin-bottom: 5px;
+    background-color: white;
+    text-align: center;
+    display: flex;
+}
+.image{
+    border-radius: 50%;
+}
+.userListBottom{
+    width: 250px;
+}
