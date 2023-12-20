@@ -2,10 +2,15 @@ const BASE_URL = `https://api.dictionaryapi.dev/api/v2/entries/en`;
 let searchInput = document.querySelector(".searchInput");
 let definition = document.querySelector(".text");
 let form = document.querySelector("form");
+
+
 async function getData(word) {
-  let response = await axios(`${BASE_URL}/${word}`);
-  console.log(response.data);
-  drawDef(response.data);
+try {
+  let res=await fetch(BASE_URL)
+  let 
+} catch (error) {
+  
+}
 }
 
 
@@ -37,3 +42,4 @@ function playAudio(icon) {
     // console.log(icon.querySelector("audio"));
   icon.querySelector("audio").play();
 }
+
